@@ -1,0 +1,330 @@
+:root {
+  --base-font-size: 18pt;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --border: #cccccc;
+  --border-focus: #4a4a4a;
+  --accent: #333333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: var(--base-font-size);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* トップバー / ログアウト */
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 12px 24px 0;
+}
+
+.logout-btn {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #f2f2f2;
+}
+
+/* ログイン画面 */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-input {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+}
+
+.enter-btn {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px 14px;
+  border: 1px solid var(--border-focus);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.enter-btn:hover {
+  opacity: 0.88;
+}
+
+.enter-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.login-error {
+  min-height: 1.2em;
+  margin: 0;
+  font-size: 0.85rem;
+  color: #c0392b;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.field-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.text-box {
+  width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  resize: vertical;
+  background: #fff;
+  color: var(--text);
+}
+
+.text-box:focus {
+  outline: none;
+  border-color: var(--border-focus);
+}
+
+/* 上下矢印 */
+.swap-row {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.swap-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.swap-btn:hover {
+  background: #f2f2f2;
+}
+
+.swap-btn:active {
+  transform: scale(0.94);
+}
+
+/* 変換ボタン */
+.convert-row {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 8px;
+}
+
+.convert-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.convert-btn:hover {
+  background: #f2f2f2;
+}
+
+.convert-btn:active {
+  transform: scale(0.96);
+}
+
+.convert-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* アコーディオン */
+.accordion {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.accordion details {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-title {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 14px 16px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.accordion-title::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-title::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 0.8em;
+  transition: transform 0.15s;
+}
+
+.accordion details[open] .accordion-title::before {
+  transform: rotate(90deg);
+}
+
+.accordion-body {
+  padding: 8px 16px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.accordion-placeholder {
+  color: #888;
+  margin: 8px 0;
+}
+
+/* 変換エラー（赤文字） */
+.convert-error {
+  min-height: 1.4em;
+  margin: 4px 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #c0392b;
+  word-break: break-all;
+}
+
+/* 入れ子アコーディオン */
+.sub-accordion {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.sub-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 10px 14px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  background: #fafafa;
+}
+
+.sub-title::-webkit-details-marker {
+  display: none;
+}
+
+.sub-title::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 0.75em;
+  transition: transform 0.15s;
+}
+
+.sub-accordion[open] > .sub-title::before {
+  transform: rotate(90deg);
+}
+
+.sub-count {
+  color: #999;
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.sub-body {
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+}
+
+.char-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.char-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2em;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background: #fff;
+}
